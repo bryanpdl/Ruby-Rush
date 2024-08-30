@@ -1,0 +1,71 @@
+@keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 5px 0px var(--glow-color);
+    }
+    50% {
+      box-shadow: 0 0 20px 10px var(--glow-color);
+    }
+    100% {
+      box-shadow: 0 0 5px 0px var(--glow-color);
+    }
+  }
+  
+  .gemstone-display {
+    position: relative;
+    display: inline-block;
+  }
+
+  .gemstone-display img {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: none;
+  }
+  
+  
+  .gemstone-display::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gemstone-display.glow::before {
+    opacity: 1;
+    animation: pulse-glow 1.25s infinite ease-in-out;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      opacity: 0.3;
+      transform: scale(0.35);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(0.55);
+    }
+    100% {
+      opacity: 0.3;
+      transform: scale(0.35);
+    }
+  }
+  
+  .ruby-display.glow::before {
+    background: radial-gradient(circle, rgba(255,0,0,0.6) 0%, rgba(255,0,0,0) 70%);
+  }
+  
+  .sapphire-display.glow::before {
+    background: radial-gradient(circle, rgba(43, 43, 255, 0.815) 0%, rgba(0,0,255,0) 70%);
+  }
+  
+  .emerald-display.glow::before {
+    background: radial-gradient(circle, rgba(0,255,0,0.6) 0%, rgba(0,255,0,0) 70%);
+  }

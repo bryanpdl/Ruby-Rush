@@ -1,0 +1,394 @@
+body {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #1e1e1e;
+  margin: 0;
+  color: #f0f0f0;
+  text-align: center;
+  height: 100%;
+}
+
+
+* {
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+}
+
+h1 {
+  top: 100%;
+  color: #f0f0f0;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.gemstone-display {
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+  border-radius: 12px;
+  padding: 14px;
+  margin: 16px auto;
+  margin-inline: 12px;
+  width: 400px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.game-content-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.bonus-window-container {
+  position: absolute; /* Change to absolute positioning */
+  left: calc(100% + 60px); /* Position 60px from the right edge of gemstone displays */
+  top: 50%; /* Align vertically */
+  transform: translateY(-50%); /* Center vertically */
+}
+
+.gemstone-displays {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Adds space between gemstone displays */
+}
+
+
+/* Assuming BonusWindow is a direct child of game-content-wrapper */
+/* .game-content-wrapper > :nth-child(2) {
+  margin-left: 60px;
+} */
+
+img {
+  width: 200px;
+  height: 200px;
+  margin: 0;
+  
+}
+
+.spacer-div {
+  margin: 0px;
+  padding: 0px;
+}
+.stats-display {
+  display: inline-flex;
+  top: 0%;
+  margin: auto;
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  padding: 10px;
+  z-index: 1; /* if needed, to ensure it's on top */
+  box-sizing: border-box;
+}
+
+.ct-amount {
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+}
+
+.money-display, .upgrade-level-display, .gemstone-upgrade-level-display {
+  margin: 24px;
+}
+
+
+.ruby-display {
+  background: #181717;
+}
+
+.sapphire-display {
+  background: #181717;
+}
+
+.emerald-display {
+  background: #181717;
+}
+
+p {
+  color: #f0f0f0;
+  font-size: 1.2em;
+  margin: 5px;
+}
+
+.main-buttons {
+  margin-top: 20px;
+  
+}
+
+* {
+  box-sizing: border-box;
+}
+
+* {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+
+button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+button,
+input,
+select {
+  outline: none !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button,
+input,
+select,
+a {
+  outline: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+button:focus,
+input:focus,
+select:focus,
+a:focus,
+button:active,
+input:active,
+select:active,
+a:active {
+  outline: none !important;
+  -webkit-focus-ring-color: transparent !important;
+  box-shadow: none !important;
+}
+
+button:focus,
+.bet-input:focus,
+.bet-select:focus {
+  outline: none !important;
+  -webkit-focus-ring-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+button:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* Gem-related buttons */
+.button-ruby {
+  background-color: #dd224b;
+}
+
+.button-ruby:hover {
+  background-color: #ff6464;
+}
+
+.button-sapphire {
+  background-color: #3838e6;
+}
+
+.button-sapphire:hover {
+  background-color: #7171ff;
+}
+
+.button-emerald {
+  background-color: #289e42;
+}
+
+.button-emerald:hover {
+  background-color: #35d135;
+}
+
+/* Betting-related buttons */
+.bet-button,
+.button-double,
+.button-halve,
+.button-max {
+  background-color: #131313;
+  font-weight: 600;
+  text-align: center;
+}
+
+.bet-button:hover,
+.button-double:hover,
+.button-halve:hover,
+.button-max:hover {
+  background-color: #333;
+}
+
+.bet-div {
+  margin-top: 20px;
+}
+/* Bet input styles */
+.bet-input {
+  margin: 5px;
+  margin-right: 8px;
+  padding: 12px;
+  height: 32px;
+  font-size: 16px;
+  color: #f0f0f0;
+  font-weight: 200;
+  background-color: #333;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+}
+
+/* Bet select styles */
+.bet-select {
+  padding: 5px 10px;
+  margin: 10px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.bet-select:hover {
+  background-color: #666;
+}
+
+/* Other button styles */
+.button-sellAll,
+.button-upgrade,
+.button-reset {
+  background-color: #131313;
+}
+
+.button-sellAll:hover,
+.button-upgrade:hover,
+.button-reset:hover {
+  background-color: #333;
+}
+ .button-reset {
+  margin-top: 60px;
+}
+
+.gemstone-multipliers {
+  background-color: #333;
+  border: 2px solid #444;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.gemstone-multipliers p {
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.gemstone-multipliers p:nth-child(1) {
+  background-color: #ffcccb; /* Light red for ruby */
+  color: #8b0000;
+}
+
+.gemstone-multipliers p:nth-child(2) {
+  background-color: #e6e6fa; /* Light blue for sapphire */
+  color: #00008b;
+}
+
+.gemstone-multipliers p:nth-child(3) {
+  background-color: #90ee90; /* Light green for emerald */
+  color: #006400;
+}
+.modal-container {
+  position: fixed;
+  padding: 40px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.616);
+  filter: 8px
+}
+
+.modal-content {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  height: 100px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-message {
+  font-size: 16px;
+  color: #0c0c0c;
+  font-weight: bold;
+  text-align: center;
+}
+
+.reels {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reel {
+  width: 50px;
+  overflow: hidden;
+}
+
+.modal-content img {
+  height: 50px;
+  width: 50px;
+}
+
+@keyframes spin {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-150px); /* Adjust based on the number of images in a reel */
+  }
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
