@@ -37,6 +37,25 @@ const App = () => {
   const [activeBonus, setActiveBonus] = useState(null);
   const [activeBonusEndTime, setActiveBonusEndTime] = useState(null);
 
+  const [betValue, setBetValue] = useState(0);
+  const [betDisplay, setBetDisplay] = useState('0.00');
+
+  const handleBetChange = (e) => {
+    const inputValue = e.target.value.replace(/[^0-9.]/g, '');
+    const numericValue = parseFloat(inputValue);
+    
+    if (!isNaN(numericValue)) {
+      setBetValue(numericValue);
+      setBetDisplay(inputValue);  // Display unformatted input
+    } else {
+      setBetValue(0);
+      setBetDisplay('');  // Allow empty input
+    }
+  };
+
+  const formatBetDisplay = () => {
+    setBetDisplay(formatNumber(betValue));
+  };
 
   const activateBonus = useCallback((bonusType) => {
     const endTime = Date.now() + 30000; // 30 seconds from now
@@ -53,11 +72,30 @@ const App = () => {
       console.error('Invalid number:', number);
       return '0.00';
     }
-    return number.toFixed(2);
+  
+    const abbreviations = ['', 'K', 'M', 'B', 'T', 'Qa', 'Qi', 'Sx', 'Sp', 'Oc', 'No', 'Dc', 'Ud', 'Dd', 'Td', 'Qad', 'Qid', 'Sxd', 'Spd', 'Ocd', 'Nod', 'Vg', 'Uvg'];
+    
+    // Handle numbers less than 100,000
+    if (number < 1e5) {
+      return number.toLocaleString('en-US', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+  
+    // Handle larger numbers
+    const tier = Math.log10(Math.abs(number)) / 3 | 0;
+    if (tier === 0) return number.toString();
+  
+    const scale = Math.pow(10, tier * 3);
+    const scaled = number / scale;
+  
+    return scaled.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }) + abbreviations[tier];
   };
 
-  console.log('Money:', formatNumber(money));
-console.log('Upgrade Price:', formatNumber(upgradePrice));
 
   const applyLuckyUpgrade = useCallback(() => {
     const gemstones = ['ruby', 'sapphire', 'emerald'];
@@ -193,12 +231,12 @@ console.log('Upgrade Price:', formatNumber(upgradePrice));
    
   
   const makeBet = () => {
-    if (bet < 1) {
+    if (betValue < 1) {
       alert("Minimum bet is $1");
       return;
     }
   
-    if (money < bet) {
+    if (money < betValue) {
       alert("You don't have enough money to make this bet!");
       return;
     }
@@ -215,9 +253,9 @@ console.log('Upgrade Price:', formatNumber(upgradePrice));
     setMoney(prevMoney => prevMoney - bet);
   
     if (won) {
-      const winnings = bet * payoutMultiplier;
+      const winnings = betValue * payoutMultiplier;
       setMoney(prevMoney => prevMoney + winnings);
-      setModalMessage(`You won the bet with a ${payoutMultiplier}x multiplier! Your payout is $${winnings.toLocaleString('en-US')}.`);
+      setModalMessage(`You won the bet with a ${payoutMultiplier}x multiplier! Your payout is $${formatNumber(winnings)}.`);
       setShowModal(true);
     } else {
       setModalMessage("You lost the bet...");
@@ -233,23 +271,28 @@ console.log('Upgrade Price:', formatNumber(upgradePrice));
 
 
   const doubleBet = () => {
-    if (bet * 2 <= money) {
-      setBet(bet * 2);
+    const newBet = betValue * 2;
+    if (newBet <= money) {
+      setBetValue(newBet);
+      setBetDisplay(formatNumber(newBet));
     } else {
       alert("You don't have enough money to double this bet!");
     }
   };
 
   const halveBet = () => {
-    if (bet > 1) {
-      setBet(bet / 2);
+    const newBet = betValue / 2;
+    if (newBet >= 1) {
+      setBetValue(newBet);
+      setBetDisplay(formatNumber(newBet));
     } else {
       alert("Minimum bet is $1");
     }
   };
   
   const maxBet = () => {
-    setBet(Math.floor(money));
+    setBetValue(Math.floor(money));
+    setBetDisplay(formatNumber(Math.floor(money)));
   };
   
   
@@ -325,7 +368,13 @@ console.log('Upgrade Price:', formatNumber(upgradePrice));
     )}
       <div className="bet-div">
         <label> $ </label>
-        <input className="bet-input" type="number" value={bet} onChange={e => setBet(parseInt(e.target.value, 10))} />
+        <input
+          className="bet-input"
+          type="text"
+          value={betDisplay}
+          onChange={handleBetChange}
+          onBlur={formatBetDisplay}
+        />
         <button className="button-halve" onClick={halveBet}>1/2</button>
         <button className="button-double" onClick={doubleBet}>2x</button>
         <button className="button-max" onClick={maxBet}>MAX</button>
