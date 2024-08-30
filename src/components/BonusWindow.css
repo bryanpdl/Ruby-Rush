@@ -30,8 +30,9 @@
 .lucky-spins-text {
   position: absolute;
   top: -30px; /* Adjust this value to position the text higher or lower */
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  text-align: center;
   font-size: 18px;
   font-weight: bold;
   color: #FFD700; /* Gold color, you can change this */
