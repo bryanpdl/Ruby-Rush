@@ -49,11 +49,15 @@ const App = () => {
   }, []);
 
   const formatNumber = (number) => {
-    return number.toLocaleString('en-US', {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
+    if (typeof number !== 'number') {
+      console.error('Invalid number:', number);
+      return '0.00';
+    }
+    return number.toFixed(2);
   };
+
+  console.log('Money:', formatNumber(money));
+console.log('Upgrade Price:', formatNumber(upgradePrice));
 
   const applyLuckyUpgrade = useCallback(() => {
     const gemstones = ['ruby', 'sapphire', 'emerald'];
