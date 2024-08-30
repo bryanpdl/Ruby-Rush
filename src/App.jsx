@@ -321,6 +321,7 @@ const App = () => {
       
        
       <div className="spacer-div"></div>
+     
       <div className="game-content-wrapper">
         <div className='gemstone-displays'>
           <div className={`gemstone-display ruby-display ${activeBonus === 'Auto-Gain' ? 'glow' : ''}`}>
