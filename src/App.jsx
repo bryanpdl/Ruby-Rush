@@ -48,6 +48,13 @@ const App = () => {
     }, 30000);
   }, []);
 
+  const formatNumber = (number) => {
+    return number.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+  };
+
   const applyLuckyUpgrade = useCallback(() => {
     const gemstones = ['ruby', 'sapphire', 'emerald'];
     const luckyGemstone = gemstones[Math.floor(Math.random() * gemstones.length)];
@@ -260,7 +267,7 @@ const App = () => {
        <ActiveBonus activeBonus={activeBonus} endTime={activeBonusEndTime} />
       <h1>Ruby Rush</h1>
       <div className="stats-display">
-       <p className="money-display">Wallet: ${money.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+       <p className="money-display">Wallet: ${formatNumber(money)}</p>
        <p className="upgrade-level-display">Gain Level: {upgradeLevel}</p>
        <p className="gemstone-upgrade-level-display">Sale Price Level: {gemstoneUpgradeLevel}</p>
       </div>
@@ -271,18 +278,18 @@ const App = () => {
         <div className='gemstone-displays'>
           <div className={`gemstone-display ruby-display ${activeBonus === 'Auto-Gain' ? 'glow' : ''}`}>
           <img src="images\bbryan_High_resolution_render_intricate_cut_ruby_gems_vibrant_c_6f733ba0-441a-469a-add3-fdc1f02f73d7-removebg-preview.png" alt="rubyImg"/>
-          <p>Rubies: {gemstones.ruby.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} cts</p>
-          <p className="ct-amount">(${calculateSalePrice('ruby').toLocaleString('en-US')}/ct)</p>
+          <p>Rubies:{formatNumber(gemstones.ruby)} cts</p>
+          <p className="ct-amount">(${formatNumber(calculateSalePrice('ruby'))}/ct)</p>
           </div>
           <div className={`gemstone-display sapphire-display ${activeBonus === 'Auto-Gain' ? 'glow' : ''}`}>
           <img src="images\bbryan_High_resolution_render_intricate_cut_blue_sapphire_gems__28782488-ac6b-42bf-8126-b5912232b7fc-removebg-preview.png" alt="saphImg"/>
-          <p>Sapphires: {gemstones.sapphire.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} cts</p>
-          <p className="ct-amount">(${calculateSalePrice('sapphire').toLocaleString('en-US')}/ct)</p>
+          <p>Sapphires: {formatNumber(gemstones.sapphire)}  cts</p>
+          <p className="ct-amount">(${formatNumber(calculateSalePrice('sapphire'))}/ct)</p>
           </div>
           <div className={`gemstone-display emerald-display ${activeBonus === 'Auto-Gain' ? 'glow' : ''}`}>
           <img src="images\bbryan_High_resolution_render_intricate_cut_emerald_gems_vibran_263780ba-d76c-4515-802f-f16c72297318-removebg-preview.png" alt="emerImg"/>
-            <p>Emeralds: {gemstones.emerald.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} cts</p>
-            <p className="ct-amount">(${calculateSalePrice('emerald').toLocaleString('en-US')}/ct)</p>
+            <p>Emeralds: {formatNumber(gemstones.emerald)} cts</p>
+            <p className="ct-amount">(${formatNumber(calculateSalePrice('emerald'))}/ct)</p>
           </div>
         </div>
 
@@ -303,8 +310,8 @@ const App = () => {
         <button className="button-emerald" onClick={() => sellAllIndGemstones('emerald')}>Sell Emerald</button>
         <button className="button-sellAll"onClick={sellAllGemstones}>Sell All</button>
       </div>
-      <button className="button-upgrade" onClick={buyUpgrade}>Increase Gain Amount (${upgradePrice.toLocaleString('en-US')})</button>
-      <button className="button-upgrade" onClick={buyGemstoneUpgrade}>Increase Sale Price (${gemstoneUpgradePrice.toLocaleString('en-US')})</button>  
+      <button className="button-upgrade" onClick={buyUpgrade}>Increase Gain Amount (${formatNumber(upgradePrice)})</button>
+      <button className="button-upgrade" onClick={buyGemstoneUpgrade}>Increase Sale Price (${formatNumber(gemstoneUpgradePrice)})</button>  
       {showModal && (
       <div className="modal-container">
         <div className="modal-backdrop"></div>
