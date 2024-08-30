@@ -170,7 +170,7 @@ console.log('Upgrade Price:', formatNumber(upgradePrice));
     if (money >= upgradePrice) {
       setUpgradeLevel(upgradeLevel => upgradeLevel + 1);
       setMoney(money => money - upgradePrice);
-      setUpgradePrice(upgradePrice => upgradePrice * 1.5);  
+      setUpgradePrice(upgradePrice => upgradePrice * 1.2);  
     } else {
       alert("Not enough money to buy upgrade!");
     }
@@ -180,7 +180,7 @@ console.log('Upgrade Price:', formatNumber(upgradePrice));
     if (money >= gemstoneUpgradePrice) {
       setGemstoneUpgradeLevel(upgradeLevel => upgradeLevel + 1);
       setMoney(money => money - gemstoneUpgradePrice);
-      setGemstoneUpgradePrice(gemstoneUpgradePrice => gemstoneUpgradePrice * 1.5);  
+      setGemstoneUpgradePrice(gemstoneUpgradePrice => gemstoneUpgradePrice * 1.2);  
     } else {
       alert("Not enough money to buy gemstone upgrade!");
     }
@@ -308,7 +308,6 @@ console.log('Upgrade Price:', formatNumber(upgradePrice));
       
       
       <div className="main-buttons"> 
-        <h1>Sell Gems</h1>
         <button className="button-ruby" onClick={() => sellAllIndGemstones('ruby')}>Sell Ruby</button>
         <button className="button-sapphire" onClick={() => sellAllIndGemstones('sapphire')}>Sell Sapphire</button>
         <button className="button-emerald" onClick={() => sellAllIndGemstones('emerald')}>Sell Emerald</button>
