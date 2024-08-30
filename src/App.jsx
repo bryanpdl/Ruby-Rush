@@ -170,7 +170,7 @@ console.log('Upgrade Price:', formatNumber(upgradePrice));
     if (money >= upgradePrice) {
       setUpgradeLevel(upgradeLevel => upgradeLevel + 1);
       setMoney(money => money - upgradePrice);
-      setUpgradePrice(upgradePrice => upgradePrice * 1.18);  
+      setUpgradePrice(upgradePrice => upgradePrice * 1.5);  
     } else {
       alert("Not enough money to buy upgrade!");
     }
