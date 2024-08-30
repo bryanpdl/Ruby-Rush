@@ -27,6 +27,17 @@
   border-radius: 10px;
 }
 
+.lucky-spins-text {
+  position: absolute;
+  top: -30px; /* Adjust this value to position the text higher or lower */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFD700; /* Gold color, you can change this */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  white-space: nowrap;
+}
 .bonus-item {
   width: 100%;
   height: 150px;

@@ -64,6 +64,7 @@ const BonusWindow = ({ bonuses, lastSpinTime, setLastSpinTime }) => {
 
   return (
     <div className="bonus-window">
+      <p className='lucky-spins-text'>Lucky Spins</p>
       <div ref={windowRef} className="window">
         {displayedBonuses.map((bonus, index) => (
           <div key={`${bonus.id}-${index}`} className="bonus-item">
