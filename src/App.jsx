@@ -308,7 +308,7 @@ console.log('Upgrade Price:', formatNumber(upgradePrice));
       
       
       <div className="main-buttons"> 
-       
+        <h1>Sell Gems</h1>
         <button className="button-ruby" onClick={() => sellAllIndGemstones('ruby')}>Sell Ruby</button>
         <button className="button-sapphire" onClick={() => sellAllIndGemstones('sapphire')}>Sell Sapphire</button>
         <button className="button-emerald" onClick={() => sellAllIndGemstones('emerald')}>Sell Emerald</button>
