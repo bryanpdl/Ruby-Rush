@@ -111,14 +111,14 @@ const App = () => {
   };
 
 
-  const buyGemstones = () => {
-    if (money >= 10) {
-      setGemstones(gemstones => ({ ...gemstones, ruby: gemstones.ruby + 1 }));
-      setMoney(money => money - 10);
-    } else {
-      alert("Not enough money to buy gemstones!");
-    }
-  }
+  // const buyGemstones = () => {
+  //   if (money >= 10) {
+  //     setGemstones(gemstones => ({ ...gemstones, ruby: gemstones.ruby + 1 }));
+  //     setMoney(money => money - 10);
+  //   } else {
+  //     alert("Not enough money to buy gemstones!");
+  //   }
+  // }
 
   const autoClickGemstones = useCallback(() => {
     setGemstones(prev => ({
@@ -304,7 +304,7 @@ const App = () => {
       
       
       <div className="main-buttons"> 
-        <button className="button-ruby" onClick={buyGemstones}>Buy Ruby ($10/ct)</button>
+        {/* <button className="button-ruby" onClick={buyGemstones}>Buy Ruby ($10/ct)</button> */}
         <button className="button-ruby" onClick={() => sellAllIndGemstones('ruby')}>Sell Ruby</button>
         <button className="button-sapphire" onClick={() => sellAllIndGemstones('sapphire')}>Sell Sapphire</button>
         <button className="button-emerald" onClick={() => sellAllIndGemstones('emerald')}>Sell Emerald</button>
