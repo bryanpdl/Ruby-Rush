@@ -250,7 +250,7 @@ const App = () => {
     const won = Math.random() < betConfig[betType].odds;
     const payoutMultiplier = won ? betConfig[betType].payouts[Math.floor(Math.random() * betConfig[betType].payouts.length)] : -1;
   
-    setMoney(prevMoney => prevMoney - bet);
+    setMoney(prevMoney => prevMoney - betValue);
   
     if (won) {
       const winnings = betValue * payoutMultiplier;
