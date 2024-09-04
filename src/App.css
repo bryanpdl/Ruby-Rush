@@ -39,6 +39,33 @@ h1 {
   margin-bottom: 10px;
 }
 
+.gemstone-image {
+  width: 200px;
+  height: 200px;
+}
+
+.ruby-image {
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
+}
+
+.sapphire-image {
+  filter: drop-shadow(0 0 10px rgba(29, 46, 235, 0.5));
+}
+
+.emerald-image {
+  filter: drop-shadow(0 0 10px rgba(0, 255, 81, 0.5));
+}
+
+
+@keyframes shine {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
+  }
+}
+
 .game-content-wrapper {
   position: relative;
   display: flex;

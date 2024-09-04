@@ -323,23 +323,23 @@ const App = () => {
       <div className="spacer-div"></div>
      
       <div className="game-content-wrapper">
-        <div className='gemstone-displays'>
-          <div className={`gemstone-display ruby-display ${activeBonus === 'Auto-Gain' ? 'glow' : ''}`}>
-          <img src="images\bbryan_High_resolution_render_intricate_cut_ruby_gems_vibrant_c_6f733ba0-441a-469a-add3-fdc1f02f73d7-removebg-preview.png" alt="rubyImg"/>
+          <div className='gemstone-displays'>
+        <div className={`gemstone-display ruby-display ${activeBonus === 'Auto-Gain' ? 'glow' : ''}`}>
+          <img src="/images/ruby.png" alt="Ruby" className="gemstone-image ruby-image"/>
           <p>Rubies:{formatNumber(gemstones.ruby)} cts</p>
           <p className="ct-amount">(${formatNumber(calculateSalePrice('ruby'))}/ct)</p>
-          </div>
-          <div className={`gemstone-display sapphire-display ${activeBonus === 'Auto-Gain' ? 'glow' : ''}`}>
-          <img src="images\bbryan_High_resolution_render_intricate_cut_blue_sapphire_gems__28782488-ac6b-42bf-8126-b5912232b7fc-removebg-preview.png" alt="saphImg"/>
+        </div>
+        <div className={`gemstone-display sapphire-display ${activeBonus === 'Auto-Gain' ? 'glow' : ''}`}>
+          <img src="/images/sapphire.png" alt="Sapphire" className="gemstone-image sapphire-image"/>
           <p>Sapphires: {formatNumber(gemstones.sapphire)}  cts</p>
           <p className="ct-amount">(${formatNumber(calculateSalePrice('sapphire'))}/ct)</p>
-          </div>
-          <div className={`gemstone-display emerald-display ${activeBonus === 'Auto-Gain' ? 'glow' : ''}`}>
-          <img src="images\bbryan_High_resolution_render_intricate_cut_emerald_gems_vibran_263780ba-d76c-4515-802f-f16c72297318-removebg-preview.png" alt="emerImg"/>
-            <p>Emeralds: {formatNumber(gemstones.emerald)} cts</p>
-            <p className="ct-amount">(${formatNumber(calculateSalePrice('emerald'))}/ct)</p>
-          </div>
         </div>
+        <div className={`gemstone-display emerald-display ${activeBonus === 'Auto-Gain' ? 'glow' : ''}`}>
+          <img src="/images/emerald.png" alt="Emerald" className="gemstone-image emerald-image"/>
+          <p>Emeralds: {formatNumber(gemstones.emerald)} cts</p>
+          <p className="ct-amount">(${formatNumber(calculateSalePrice('emerald'))}/ct)</p>
+        </div>
+      </div>
 
         <div className="bonus-window-container">
         <BonusWindow 
